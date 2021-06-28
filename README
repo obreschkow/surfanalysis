@@ -1,0 +1,47 @@
+OVERVIEW
+====================================================================================================================
+
+SurfAnalysis is an extension to SurfSuite, providing additional tasks to the latter. This README file only describes
+the additional tasks. For all other purposes, please refer to the README file of SurfSuite.
+
+IMPORTANT: surfsuite must be compiled before compiling surfanalysis
+
+V0.1  25/02/2020: First release
+V0.2  28/06/2021: Added asymmetry parameter
+
+Copyright Danail Obreschkow (danail.obreschkow@icrar.org)
+
+
+QUICK START ON ICRAR-HYADES
+====================================================================================================================
+
+# install and compile surfsuite in your home directory
+cd ~
+rm -rf surfsuite/ # remove previous surfsuite directory
+git clone https://github.com/obreschkow/surfsuite # install updated version
+cd surfsuite # change to surfsuite directory
+module load gfortran hdf5 # load required modules
+make system=hyades # compile code
+./surfsuite version # check version
+
+# assuming that 'makeall' has been run before by another user, you can, for example,
+# extract particle information for particle number 134 in the SURFS run L210_N1024-Hydro:
+./surfsuite getparticle 134 -parameterset L210_N1024-Hydro6D-hyades
+# NB: it may be necessary to specify the parameter file location using the option "-parameterfile"
+
+# you can also extract halo information for halo number 56 in the L210_N1024 run of SURFS
+./surfsuite gethalo 56 -parameterset L210_N1024-Hydro6D-hyades
+
+
+
+TASKS
+====================================================================================================================
+
+Generally, SurfAnalysis is called as
+> ./surfanalysis task [task_argument] [-option argument] [-option argument] ...
+
+The tasks to choose from are
+
++ moments: computes the moment indices of the spherical harmonics analysis
+  -subhalos (default 1): 0 = do not include particles in subhalos, 1 = included particles in all generations of subhalos
+  
