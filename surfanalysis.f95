@@ -9,7 +9,7 @@ program surfanalysis
    implicit none
    
    ! start user interface
-   call set_version('0.2')
+   call set_version('0.24')
    call handle_arguments(require_task=.true.)
    call start_output
    

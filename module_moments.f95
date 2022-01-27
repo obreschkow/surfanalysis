@@ -198,12 +198,12 @@ subroutine make_moment_indices
    call hdf5_write_data('simulation/box_n',para%N,'cubic root of particle number')
    call hdf5_write_data('simulation/snapshot',para%snapshot,'snapshot index')
    
-   ! Group "surfsuite"
-   call hdf5_add_group('surfsuite')
-   call hdf5_write_data('surfsuite/timestamp',timestamp(),'surfsuite timestamp')
-   call hdf5_write_data('surfsuite/version',trim(version),'version of surfsuite used to extract the halo')
-   call hdf5_write_data('surfsuite/developer','Danail Obreschkow; danail.obreschkow@icrar.org')
-   call hdf5_write_data('surfsuite/subhalos',log2int(subhalos), &
+   ! Group "surfanalysis"
+   call hdf5_add_group('surfanalysis')
+   call hdf5_write_data('surfanalysis/timestamp',timestamp(),'surfanalysis timestamp')
+   call hdf5_write_data('surfanalysis/version',trim(version),'version of surfanalysis used to extract the halo')
+   call hdf5_write_data('surfanalysis/developer','Danail Obreschkow; danail.obreschkow@icrar.org')
+   call hdf5_write_data('surfanalysis/subhalos',log2int(subhalos), &
    & 'logical flag (0/1 = subhalo particles are included/excluded)')
    
    ! Group "halos"
